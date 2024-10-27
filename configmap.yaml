@@ -1,0 +1,15 @@
+## create a configmap
+
+## k create configmap clothing-shop-config-map --from-file=config.json --namespace=clothing-shop-namespace --dry-run=client -o yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clothing-shop-config-map
+  namespace: clothing-shop-namespace
+data:
+    config.json: |
+        {
+        "url": "http://clothing-shop-service.default.svc.cluster.local",
+        "interval": 5
+        }
