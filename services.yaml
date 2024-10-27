@@ -1,0 +1,42 @@
+## create a service
+
+## k create service clusterip clothing-shop-service --tcp=80:80 --namespace=clothing-shop-namespace --dry-run=client -o yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: clothing-shop-service
+  namespace: clothing-shop-namespace  
+spec:
+    selector:
+        app: clothing-shop
+    ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clothing-shop-service-2
+  namespace: clothing-shop-namespace  
+spec:
+    selector:
+        app: clothing-shop
+    ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clothing-shop-service-3
+  namespace: clothing-shop-namespace  
+spec:
+    selector:
+        app: clothing-shop
+    ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 443
