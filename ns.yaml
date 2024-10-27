@@ -1,0 +1,12 @@
+
+## create a namespace
+
+## alais k=kubectl
+
+## k create ns clothing-shop-namespace --dry-run=client -o yaml
+
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: clothing-shop-namespace
