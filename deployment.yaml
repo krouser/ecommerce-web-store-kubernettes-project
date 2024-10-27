@@ -1,0 +1,29 @@
+## create a deployment
+
+## k create deployment clothing-shop-deployment --image=web-ping:1.0 --namespace=clothing-shop-namespace --dry-run=client -o yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clothing-shop-deployment
+  namespace: clothing-shop-namespace
+spec:
+    replicas: 1 ##crete 3 replicas
+    selector:
+        matchLabels:
+          app: clothing-shop
+    template:
+        metadata:
+        labels:
+            app: clothing-shop
+        spec:
+        containers:
+        - name: clothing-shop
+          image: web-ping:1.0
+        volumeMounts:
+            - name: config-volume
+        mountPath: /etc/clothing-shop
+        volumes:
+        - name: config-volume
+        configMap:
+            name: clothing-shop-config-map
