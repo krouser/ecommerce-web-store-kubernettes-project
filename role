@@ -1,0 +1,15 @@
+
+## create a role
+
+## k create role clothing-shop-role --resource=pods,deployments --verb=get,list --namespace=clothing-shop-namespace --dry-run=client -o yaml
+
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: clothing-shop-role
+  namespace: clothing-shop-namespace
+rules:
+- apiGroups: [""]
+  resources: ["pods", "deployments"]
+  verbs: ["get", "list"]
